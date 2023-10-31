@@ -57,25 +57,23 @@ class EnterDetailsFragment : Fragment() {
         registrationViewModel = (activity as RegistrationActivity).registrationViewModel
 
         enterDetailsViewModel = EnterDetailsViewModel()
-        enterDetailsViewModel.enterDetailsState.observe(
-            viewLifecycleOwner,
-            { state ->
-                when (state) {
-                    is EnterDetailsSuccess -> {
+        enterDetailsViewModel.enterDetailsState.observe(viewLifecycleOwner) { state ->
+            when (state) {
+                is EnterDetailsSuccess -> {
 
-                        val username = usernameEditText.text.toString()
-                        val password = passwordEditText.text.toString()
-                        registrationViewModel.updateUserData(username, password)
+                    val username = usernameEditText.text.toString()
+                    val password = passwordEditText.text.toString()
+                    registrationViewModel.updateUserData(username, password)
 
-                        (activity as RegistrationActivity).onDetailsEntered()
-                    }
-                    is EnterDetailsError -> {
-                        errorTextView.text = state.error
-                        errorTextView.visibility = View.VISIBLE
-                    }
+                    (activity as RegistrationActivity).onDetailsEntered()
+                }
+
+                is EnterDetailsError -> {
+                    errorTextView.text = state.error
+                    errorTextView.visibility = View.VISIBLE
                 }
             }
-        )
+        }
 
         setupViews(view)
         return view
