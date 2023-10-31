@@ -6,8 +6,10 @@ import com.example.android.dagger.main.MainActivity
 import com.example.android.dagger.registration.RegistrationActivity
 import dagger.BindsInstance
 import dagger.Component
+import javax.inject.Singleton
 
 // Definition of a Dagger Component that adds info from StorageModule to the graph
+@Singleton
 @Component(modules = [StorageModule::class])
 interface AppComponent {
 
