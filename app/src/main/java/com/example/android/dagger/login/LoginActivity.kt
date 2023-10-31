@@ -29,6 +29,7 @@ import com.example.android.dagger.main.MainActivity
 import com.example.android.dagger.MyApplication
 import com.example.android.dagger.R
 import com.example.android.dagger.registration.RegistrationActivity
+import javax.inject.Inject
 
 class LoginActivity : AppCompatActivity() {
 
