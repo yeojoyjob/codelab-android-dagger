@@ -55,7 +55,7 @@ class EnterDetailsFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         // A Fragment injects Dagger in the onAttach method after calling super.
-        (requireActivity().application as? MyApplication)?.appComponent?.inject(this)
+        (activity as? RegistrationActivity)?.registrationComponent?.inject(this)
     }
 
     override fun onCreateView(
