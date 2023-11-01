@@ -2,6 +2,7 @@ package com.example.android.dagger.di
 
 import android.content.Context
 import com.example.android.dagger.login.LoginActivity
+import com.example.android.dagger.login.LoginComponent
 import com.example.android.dagger.main.MainActivity
 import com.example.android.dagger.registration.RegistrationActivity
 import com.example.android.dagger.registration.RegistrationComponent
@@ -25,6 +26,7 @@ interface AppComponent {
 
     // Expose RegistrationComponent factory from the graph
     fun registrationComponent(): RegistrationComponent.Factory
+    fun loginComponent(): LoginComponent.Factory
 
 //    fun inject(activity: LoginActivity)
     fun inject(activity: MainActivity)
