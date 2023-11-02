@@ -22,6 +22,9 @@ import kotlin.random.Random
 /**
  * UserDataRepository contains user-specific data such as username and unread notifications.
  */
+// This object will have a unique instance in a Component that
+// is annotated with @LoggedUserScope (i.e. only UserComponent in this case).
+@LoggedInUserScope
 class UserDataRepository @Inject constructor(private val userManager: UserManager) {
 
     val username: String
